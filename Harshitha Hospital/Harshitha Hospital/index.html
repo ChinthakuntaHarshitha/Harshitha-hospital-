@@ -1,0 +1,1581 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HARSHITHA HOSPITAL | Caring for Life</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #087f8c;
+      --secondary: #0a6170;
+      --light: #f2fbfc;
+      --dark: #153b43;
+      --white: #ffffff;
+      --text: #52666d;
+      --orange: #ff8a3d;
+      --shadow: 0 10px 30px rgba(0, 70, 80, 0.12);
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      background: var(--dark);
+      color: white;
+      padding: 9px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .topbar span {
+      margin-right: 20px;
+    }
+
+    /* NAVIGATION */
+    header {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,.08);
+    }
+
+    nav {
+      max-width: 1250px;
+      margin: auto;
+      padding: 17px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .logo-icon {
+      width: 45px;
+      height: 45px;
+      background: var(--primary);
+      color: white;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 15px;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .appointment-btn {
+      background: var(--orange);
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 7px;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 620px;
+      background:
+        linear-gradient(90deg, rgba(7,61,70,.92), rgba(7,61,70,.65), rgba(7,61,70,.15)),
+        url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      display: flex;
+      align-items: center;
+      padding: 80px 7%;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      color: white;
+    }
+
+    .hero-content .tag {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      padding: 8px 15px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5vw, 65px);
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #6ee3ea;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 580px;
+      margin-bottom: 30px;
+      color: #eefbfc;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 7px;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #e96f20;
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn-light:hover {
+      transform: translateY(-2px);
+    }
+
+    /* QUICK CARDS */
+    .quick-section {
+      margin-top: -55px;
+      position: relative;
+      z-index: 5;
+      padding: 0 7%;
+    }
+
+    .quick-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: white;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .quick-card {
+      padding: 27px 20px;
+      text-align: center;
+      border-right: 1px solid #eee;
+    }
+
+    .quick-card:last-child {
+      border: none;
+    }
+
+    .quick-card .icon {
+      font-size: 35px;
+      margin-bottom: 7px;
+    }
+
+    .quick-card h3 {
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .section-title .small-title {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 38px;
+      margin: 10px 0;
+    }
+
+    .section-title p {
+      color: var(--text);
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--light);
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .experience-box {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--primary);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .experience-box strong {
+      display: block;
+      font-size: 35px;
+    }
+
+    .about-text h2 {
+      color: var(--dark);
+      font-size: 38px;
+      line-height: 1.2;
+      margin: 10px 0 20px;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+    }
+
+    .check-list {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .check-list li {
+      margin: 10px 0;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px;
+      border: 1px solid #e9eeee;
+      border-radius: 15px;
+      transition: .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      border-color: transparent;
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: #e4f8fa;
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    /* DOCTORS */
+    .doctors {
+      background: var(--light);
+    }
+
+    .doctor-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .doctor-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.06);
+      transition: .3s;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .doctor-image {
+      height: 320px;
+      overflow: hidden;
+    }
+
+    .doctor-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .doctor-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .doctor-info {
+      padding: 23px;
+      text-align: center;
+    }
+
+    .doctor-info h3 {
+      color: var(--dark);
+      font-size: 20px;
+    }
+
+    .doctor-info .speciality {
+      color: var(--primary);
+      font-weight: bold;
+      margin: 5px 0 12px;
+    }
+
+    .doctor-info p {
+      font-size: 14px;
+    }
+
+    /* STATS */
+    .stats {
+      background:
+        linear-gradient(rgba(7, 95, 107, .92), rgba(7, 95, 107, .92)),
+        url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      color: white;
+    }
+
+    .stats-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      text-align: center;
+      gap: 30px;
+    }
+
+    .stat h2 {
+      font-size: 42px;
+      color: white;
+    }
+
+    .stat p {
+      color: #d9f4f6;
+    }
+
+    /* APPOINTMENT */
+    .appointment {
+      background: #fff;
+    }
+
+    .appointment-container {
+      max-width: 1100px;
+      margin: auto;
+      background: var(--light);
+      border-radius: 20px;
+      padding: 45px;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 50px;
+    }
+
+    .appointment-info h2 {
+      color: var(--dark);
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .contact-detail {
+      margin-top: 25px;
+    }
+
+    .contact-detail div {
+      margin: 15px 0;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full {
+      grid-column: 1/-1;
+    }
+
+    label {
+      color: var(--dark);
+      font-weight: bold;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #d7e4e6;
+      border-radius: 7px;
+      padding: 13px;
+      font-family: inherit;
+      outline: none;
+      background: white;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonial {
+      background: var(--light);
+    }
+
+    .testimonial-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    }
+
+    .stars {
+      color: #ffad1f;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .patient {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .patient-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+    }
+
+    .patient strong {
+      color: var(--dark);
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .contact-box {
+      background: var(--light);
+      padding: 35px;
+      border-radius: 15px;
+    }
+
+    .contact-box h3 {
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+
+    .map {
+      min-height: 280px;
+      border-radius: 15px;
+      background:
+        linear-gradient(rgba(8,127,140,.75), rgba(8,127,140,.75)),
+        url("https://images.unsplash.com/photo-1580281658628-4e8c5d2a6f0b?auto=format&fit=crop&w=1000&q=80")
+        center/cover;
+      display: grid;
+      place-items: center;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: #bcd0d4;
+      padding: 60px 7% 20px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      color: white;
+      margin-bottom: 18px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin: 9px 0;
+    }
+
+    footer a {
+      color: #bcd0d4;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-logo {
+      color: white;
+      font-size: 23px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.1);
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.6);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: white;
+      width: 100%;
+      max-width: 450px;
+      padding: 35px;
+      border-radius: 15px;
+      text-align: center;
+      position: relative;
+      animation: popup .3s ease;
+    }
+
+    @keyframes popup {
+      from {
+        transform: scale(.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close-modal {
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      font-size: 25px;
+      cursor: pointer;
+      color: #777;
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      background: #dff7eb;
+      color: #20a56b;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 35px;
+      margin: 0 auto 15px;
+    }
+
+    /* BACK TO TOP */
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      border: none;
+      background: var(--primary);
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 900;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 900px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 79px;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .quick-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .quick-card:nth-child(2) {
+        border-right: none;
+      }
+
+      .about-container,
+      .appointment-container,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .doctor-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media(max-width: 600px) {
+      .topbar {
+        display: none;
+      }
+
+      section {
+        padding: 65px 5%;
+      }
+
+      .hero {
+        min-height: 600px;
+        padding: 60px 5%;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .quick-section {
+        padding: 0 5%;
+      }
+
+      .quick-grid,
+      .services-grid,
+      .doctor-grid,
+      .stats-grid,
+      .testimonial-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-card {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      .about-image img {
+        height: 350px;
+      }
+
+      .experience-box {
+        right: 10px;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .appointment-container {
+        padding: 25px;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div>
+      <span>📞 Emergency: +91 98765 43210</span>
+      <span>✉️ info@harshithahospital.com</span>
+    </div>
+    <div>24/7 Emergency & Ambulance Service</div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="logo">
+        <div class="logo-icon">✚</div>
+        HARSHITHA HOSPITAL
+      </div>
+
+      <div class="menu-btn" id="menuBtn">☰</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Departments</a></li>
+        <li><a href="#doctors">Doctors</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#appointment" class="appointment-btn">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="tag">❤ Trusted Healthcare Since 2008</div>
+
+      <h1>
+        Your Health.<br>
+        Our <span>Priority.</span>
+      </h1>
+
+      <p>
+        Welcome to Harshitha Hospital — providing compassionate,
+        advanced and affordable healthcare for you and your family.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#appointment" class="btn btn-primary">Book an Appointment</a>
+        <a href="#about" class="btn btn-light">Explore Our Hospital</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK SERVICES -->
+  <div class="quick-section">
+    <div class="quick-grid">
+
+      <div class="quick-card">
+        <div class="icon">🚑</div>
+        <h3>Emergency</h3>
+        <p>24/7 Emergency Care</p>
+      </div>
+
+      <div class="quick-card">
+        <div class="icon">👨‍⚕️</div>
+        <h3>Expert Doctors</h3>
+        <p>Experienced Specialists</p>
+      </div>
+
+      <div class="quick-card">
+        <div class="icon">🧪</div>
+        <h3>Diagnostics</h3>
+        <p>Modern Lab & Imaging</p>
+      </div>
+
+      <div class="quick-card">
+        <div class="icon">💊</div>
+        <h3>Pharmacy</h3>
+        <p>In-house Pharmacy</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-container">
+
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&w=1000&q=80"
+          alt="Harshitha Hospital"
+        >
+
+        <div class="experience-box">
+          <strong>18+</strong>
+          Years of Excellence
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="section-title" style="text-align:left;margin:0;">
+          <div class="small-title">About Harshitha Hospital</div>
+        </div>
+
+        <h2>Healthcare With Heart & Excellence</h2>
+
+        <p>
+          Harshitha Hospital is a modern multi-speciality healthcare
+          institution committed to delivering exceptional medical care
+          with compassion and integrity.
+        </p>
+
+        <p>
+          Our hospital combines experienced medical professionals,
+          advanced technology and patient-focused services to provide
+          complete healthcare under one roof.
+        </p>
+
+        <ul class="check-list">
+          <li>Experienced & compassionate medical team</li>
+          <li>Advanced diagnostic technology</li>
+          <li>Modern operation theatres & ICUs</li>
+          <li>Affordable and transparent healthcare</li>
+          <li>24/7 emergency and ambulance services</li>
+        </ul>
+
+        <a href="#services" class="btn btn-primary">Explore Our Services</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-title">
+      <div class="small-title">Our Departments</div>
+      <h2>Complete Care Under One Roof</h2>
+      <p>
+        From preventive care to advanced treatment, our specialists
+        are here to support every stage of your healthcare journey.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">❤️</div>
+        <h3>Cardiology</h3>
+        <p>
+          Comprehensive diagnosis and treatment for heart and
+          cardiovascular conditions.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Neurology</h3>
+        <p>
+          Specialized care for neurological disorders and brain
+          health conditions.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🦴</div>
+        <h3>Orthopaedics</h3>
+        <p>
+          Advanced treatment for bones, joints, muscles and
+          sports-related injuries.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">👶</div>
+        <h3>Paediatrics</h3>
+        <p>
+          Gentle and comprehensive healthcare for infants,
+          children and adolescents.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🤰</div>
+        <h3>Gynaecology</h3>
+        <p>
+          Complete women's healthcare including maternity and
+          reproductive health services.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🩺</div>
+        <h3>General Medicine</h3>
+        <p>
+          Complete diagnosis, preventive care and treatment for
+          common and complex medical conditions.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOCTORS -->
+  <section class="doctors" id="doctors">
+    <div class="section-title">
+      <div class="small-title">Our Medical Team</div>
+      <h2>Meet Our Expert Doctors</h2>
+      <p>
+        A dedicated team of experienced specialists committed to
+        providing the best possible patient care.
+      </p>
+    </div>
+
+    <div class="doctor-grid">
+
+      <div class="doctor-card">
+        <div class="doctor-image">
+          <img
+            src="images/doctor%201.jpeg"
+            alt="Dr. Harshitha"
+          >
+        </div>
+
+        <div class="doctor-info">
+          <h3>Dr. Harshitha</h3>
+          <div class="speciality">Senior Cardiologist</div>
+          <p>MBBS, MD, DM Cardiology</p>
+          <p>15+ Years Experience</p>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="doctor-image">
+          <img
+            src="images/doctor%202.jpeg"
+            alt="Dr. Rakesh Yadav"
+          >
+        </div>
+
+        <div class="doctor-info">
+          <h3>Dr. Rakesh Yadav</h3>
+          <div class="speciality">Orthopaedic Surgeon</div>
+          <p>MBBS, MS, orthopaedics</p>
+          <p>12+ Years Experience</p>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="doctor-image">
+          <img
+            src="images/doctor%203.jpeg"
+            alt="Dr. Sreedhar Yadav"
+          >
+        </div>
+
+        <div class="doctor-info">
+          <h3>Dr. Sreedhar Yadav</h3>
+          <div class="speciality">Psychiatrist</div>
+          <p>MBBS, MS Psychiatry</p>
+          <p>14+ Years Experience</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-grid">
+
+      <div class="stat">
+        <h2 data-target="18">0</h2>
+        <p>Years of Excellence</p>
+      </div>
+
+      <div class="stat">
+        <h2 data-target="50000">0</h2>
+        <p>Happy Patients</p>
+      </div>
+
+      <div class="stat">
+        <h2 data-target="75">0</h2>
+        <p>Expert Doctors</p>
+      </div>
+
+      <div class="stat">
+        <h2 data-target="24">0</h2>
+        <p>Hours Emergency Care</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- APPOINTMENT -->
+  <section class="appointment" id="appointment">
+    <div class="appointment-container">
+
+      <div class="appointment-info">
+        <div class="small-title">Appointment</div>
+        <h2>Book Your Appointment</h2>
+
+        <p>
+          Schedule a consultation with one of our experienced doctors.
+          Our team will contact you to confirm your appointment.
+        </p>
+
+        <div class="contact-detail">
+          <div>📞 <strong>Emergency:</strong><br> +91 98765 43210</div>
+          <div>📅 <strong>Available:</strong><br> Monday - Sunday</div>
+          <div>⏰ <strong>Timing:</strong><br> 24 Hours Emergency Care</div>
+        </div>
+      </div>
+
+      <form id="appointmentForm">
+
+        <div class="form-group">
+          <label>Patient Name *</label>
+          <input type="text" id="patientName" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+
+        <div class="form-group">
+          <label>Select Department *</label>
+          <select required>
+            <option value="">Choose Department</option>
+            <option>Cardiology</option>
+            <option>Neurology</option>
+            <option>Orthopaedics</option>
+            <option>Paediatrics</option>
+            <option>Gynaecology</option>
+            <option>General Medicine</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Date *</label>
+          <input type="date" required>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Time *</label>
+          <select required>
+            <option value="">Choose Time</option>
+            <option>09:00 AM</option>
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>02:00 PM</option>
+            <option>03:00 PM</option>
+            <option>04:00 PM</option>
+            <option>05:00 PM</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label>Message / Reason for Visit</label>
+          <textarea placeholder="Tell us briefly about your concern"></textarea>
+        </div>
+
+        <div class="form-group full">
+          <button class="btn btn-primary" type="submit">
+            Confirm Appointment
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonial" id="testimonials">
+    <div class="section-title">
+      <div class="small-title">Patient Reviews</div>
+      <h2>What Our Patients Say</h2>
+      <p>
+        The trust of our patients inspires us to provide better
+        healthcare every day.
+      </p>
+    </div>
+
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>
+          "The doctors and nursing staff were extremely caring.
+          The entire experience at Harshitha Hospital was excellent."
+        </p>
+
+        <div class="patient">
+          <div class="patient-avatar">RK</div>
+          <div>
+            <strong>Ramesh Kumar</strong><br>
+            Patient
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>
+          "Very clean hospital with modern facilities. The doctors
+          explained everything clearly and patiently."
+        </p>
+
+        <div class="patient">
+          <div class="patient-avatar">SM</div>
+          <div>
+            <strong>Sneha Mehta</strong><br>
+            Patient
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>
+          "I am very happy with the treatment and support provided
+          by the hospital team. Highly recommended."
+        </p>
+
+        <div class="patient">
+          <div class="patient-avatar">AK</div>
+          <div>
+            <strong>Arjun Kumar</strong><br>
+            Patient
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-title">
+      <div class="small-title">Contact Us</div>
+      <h2>We're Here When You Need Us</h2>
+      <p>
+        Reach out to Harshitha Hospital for appointments,
+        emergencies or general enquiries.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-box">
+        <h3>Harshitha Hospital</h3>
+
+        <p>
+          📍 123 Healthcare Avenue,<br>
+          Hyderabad, Telangana, India
+        </p>
+
+        <br>
+
+        <p>
+          📞 +91 98765 43210
+        </p>
+
+        <p>
+          ✉️ info@harshithahospital.com
+        </p>
+
+        <br>
+
+        <h3>Emergency Department</h3>
+        <p>
+          Our emergency department is available 24 hours a day,
+          7 days a week.
+        </p>
+
+        <br>
+
+        <a href="tel:+919876543210" class="btn btn-primary">
+          Call Emergency
+        </a>
+      </div>
+
+      <div class="map">
+        <div>
+          <div style="font-size:50px;">📍</div>
+          <h2>Find Us Easily</h2>
+          <p>123 Healthcare Avenue, Hyderabad</p>
+          <br>
+          <button class="btn btn-light" onclick="openMap()">
+            Open in Maps
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">✚ HARSHITHA HOSPITAL</div>
+
+        <p>
+          Compassionate healthcare, advanced technology and
+          trusted medical professionals — all under one roof.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Departments</a></li>
+          <li><a href="#doctors">Our Doctors</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">Cardiology</a></li>
+          <li><a href="#services">Neurology</a></li>
+          <li><a href="#services">Orthopaedics</a></li>
+          <li><a href="#services">Gynaecology</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li>+91 98765 43210</li>
+          <li>info@harshithahospital.com</li>
+          <li>Hyderabad, India</li>
+          <li>24/7 Emergency</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span> Harshitha Hospital. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal" id="successModal">
+    <div class="modal-box">
+
+      <div class="close-modal" id="closeModal">&times;</div>
+
+      <div class="success-icon">✓</div>
+
+      <h2 style="color:#153b43;">Appointment Request Received!</h2>
+
+      <p style="margin:15px 0 25px;">
+        Thank you, <strong id="modalName"></strong>.
+        Our hospital team will contact you shortly to confirm
+        your appointment.
+      </p>
+
+      <button class="btn btn-primary" id="okBtn">
+        Done
+      </button>
+
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button id="topBtn">↑</button>
+
+  <script>
+
+    /* MOBILE MENU */
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
+    });
+
+
+    /* APPOINTMENT FORM */
+    const form = document.getElementById("appointmentForm");
+    const modal = document.getElementById("successModal");
+    const modalName = document.getElementById("modalName");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("patientName").value;
+
+      modalName.textContent = name;
+      modal.classList.add("active");
+
+      form.reset();
+    });
+
+
+    /* CLOSE MODAL */
+    document.getElementById("closeModal").addEventListener("click", closeModal);
+    document.getElementById("okBtn").addEventListener("click", closeModal);
+
+    function closeModal() {
+      modal.classList.remove("active");
+    }
+
+    modal.addEventListener("click", function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+
+    /* BACK TO TOP */
+    const topBtn = document.getElementById("topBtn");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 500) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+
+    });
+
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+
+    /* ANIMATED STATISTICS */
+    const stats = document.querySelectorAll(".stat h2");
+
+    let statsStarted = false;
+
+    function animateStats() {
+
+      if (statsStarted) return;
+
+      const statsSection = document.querySelector(".stats");
+      const position = statsSection.getBoundingClientRect().top;
+
+      if (position < window.innerHeight - 100) {
+
+        statsStarted = true;
+
+        stats.forEach(stat => {
+
+          const target = Number(stat.dataset.target);
+          let current = 0;
+
+          const increment = Math.max(1, Math.ceil(target / 100));
+
+          const timer = setInterval(() => {
+
+            current += increment;
+
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+
+            stat.textContent =
+              current.toLocaleString() +
+              (target === 24 ? "/7" : "+");
+
+          }, 20);
+
+        });
+
+      }
+    }
+
+    window.addEventListener("scroll", animateStats);
+    animateStats();
+
+
+    /* CURRENT YEAR */
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* GOOGLE MAPS */
+    function openMap() {
+      window.open(
+        "https://www.google.com/maps/search/?api=1&query=Hyderabad+India",
+        "_blank"
+      );
+    }
+
+  </script>
+
+</body>
+</html>
+```
